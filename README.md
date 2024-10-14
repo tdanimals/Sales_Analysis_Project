@@ -1,40 +1,94 @@
-Sales Analysis Project for Data Analytics Certification - 
-Project Statement
+# Sales Analysis Project
 
-AAL, a prominent Australian clothing brand since 2000, is expanding its business and needs assistance from the Head of Sales and Marketing (S&M) to make informed investment decisions. The tasks include identifying high-revenue states and creating sales programs for low-revenue states. Analyze the company's Q4 sales data in Australia, state by state, to provide data-driven insights for decision-making in the next year.
+### By Tara Danneman
 
-Steps:
-1 - Evaluate the Data Set
-1B. Handling Null Values - none in data set, but below are options for what to do with null values when presented with them in a data set.
-Option A: use the 'dropna()' method to remove rows conatining null values: df.dropna(inplace=True)
-Option B: use the 'fillna()' method, such as filling nulls with the mean of the column: df.fillna(df.mean(), inplace=True)
-Option C: use forward fill or backward fill to fill the nulls with the previous or next non-null value: df.ffill(inplace=True)
-df.bfill(inplace=True)
-Option D: Interpolate missing values based on the existing values in the dataset: df.interpolate(inplace=True)
+## Project Overview
 
-1C. Choose a Data Wrangling Technique
+AAL, a prominent Australian clothing brand since 2000, is expanding its business and needs assistance from the Head of Sales and Marketing (S&M) to make informed investment decisions. The tasks include identifying high-revenue states and creating sales programs for low-revenue states. This project involves analyzing the company's Q4 sales data in Australia, state by state, to provide data-driven insights for decision-making in the next year.
 
-In order to do so you want to understand your data, which you can call using and df.info. Based on the data and goals of AAL, the recommended normalization technique is Min-Max scaling and apply it to the 'Sales' column, to see which states have the highest revenue and which states have the lowest, since this is one of their main goals. 
+## Table of Contents
 
-1D. Share insights regarding GroupBy() Function
+- [Project Overview](#project-overview)
+- [Project Statement](#project-statement)
+- [Data Analysis Steps](#data-analysis-steps)
+- [Data Visualization](#data-visualization)
+- Dependencies
+- [How to Run](#how-to-run)
 
-Once you have more information about the data set, compare that to what the companies goals are. Based off of their goal to identify the states with the highest revenues and develop sales programs for states with lower revenues, it makes sense to group the data by states and sales first to identify who has the highest and who has the lowest.
-Based on this data, the state with the highest sales is Victoria, with a high variability indicating that the total sales values for Victoria are considerably spread out from the mean. The state with the lowest sales is Western Australia, with a moderate variability, indicating that the total sales values have some spread from the mean.
-Given that the mean, median, and mode are relatively similar for each state, the distribution of the total sales is going to be relatively symmetric/normal for all of them, and also further confirms the lack of outliers skewing the data.
+## Project Statement
 
-1D cont.
-Since we are only examining the 4th quarter, you can also use the groupby() and datetime functions to group the sales by month, and then proceed to compare it to multiple columns from there.
-Based on what the data is showing after breaking it down further, you can see the highest sales month is December with October as a close second. You can deduce that given the holiday season, end of school year, high vacation and travel times, and seasonal change that it makes sense these would be times of the year with higher sales. Then when broken down by group and state, you can see men in Victoria had the highest sales during that time, followed closely by seniors and women in Victoria, which is likely because parents and grandparents are buying presents for their kids and loved ones. 
+AAL seeks to identify high-revenue states and create sales programs for low-revenue states. The analysis of Q4 sales data will provide insights to help the Head of Sales and Marketing make informed investment decisions for the next year.
 
-You can also see Western Australia and Northern Territory have the lowest sales in November, which further adds credibility to the other insights. It would make sense to research the populations, number of stores, and cultural holidays in those territories to get further insights as to what the training could look like to improve sales. 
+## Data Analysis Steps
 
-2 -  Data Analysis 
-2A. Perform descriptive statistical analysis on 'Sales' and 'Unit' columns
-2B. Determine which group is generating the highest sales and which group is generating the lowest sales.
-2C. Determine which state is generating the highest sales, and which state is generating the lowest sales.
-2D. Generate weekly, monthly, and quarterly reports for the analysis made.
+### Step 1: Preliminary Analysis
 
- 3 - Data Visualization
- 3A. Using seaborn and matplotlib, create charts making visuals for your previous recommendations and analyses.
+1. **Import Libraries and Data:**
+   - Import necessary libraries such as pandas, numpy, datetime, matplotlib, and seaborn.
+   - Load the dataset from an Excel file.
+
+2. **Check for Null Values:**
+   - Use `isnull()` and `notna()` methods to check for null values in the dataset.
+
+3. **Handle Null Values:**
+   - Although there are no null values in the dataset, options for handling null values are provided.
+
+4. **Data Wrangling:**
+   - Use `df.info()` to understand the data structure.
+   - Normalize the 'Sales' column using Min-Max scaling to identify high and low revenue states.
+
+5. **GroupBy Analysis:**
+   - Group data by 'State' and perform aggregation to get statistical insights.
+   - Group data by 'month' and 'State' to analyze sales trends over time.
+
+### Step 2: Descriptive Statistical Analysis
+
+1. **Descriptive Statistics:**
+   - Perform descriptive statistical analysis on 'Sales' and 'Unit' columns.
+
+2. **Identify High and Low Sales Groups:**
+   - Determine which group and state are generating the highest and lowest sales.
+
+3. **Generate Reports:**
+   - Generate weekly, monthly, and quarterly reports using the [`groupby`](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Ftarad%2FOneDrive%2FDocuments%2FAI%20ML%20Class%2FNotebooks%2FFinal_Sales_Analysis_Project.ipynb%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A408%2C%22character%22%3A22%7D%7D%5D%2C%2225a7581d-9cfe-4801-9a1e-4eeccc0da7ff%22%5D "Go to definition") function.
+
+## Data Visualization
+
+### Step 3: Visualization
+
+1. **Total Revenue by Day, Week, and Month:**
+   - Use seaborn and matplotlib to create bar plots showing total revenue broken down by day, week, and month.
+
+2. **Revenue Breakdown by State:**
+   - Visualize the revenue breakdown for each state during the 4th Quarter, highlighting Victoria as the top revenue generator and Western Australia as the lowest.
+
+## Dependencies
+
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scikit-learn
+
+## How to Run
+
+1. **Clone the repository:**
+   ```sh
+   git clone <repository-url>
+   ```
+2. **Navigate to the project directory:**
+   ```sh
+   cd <project-directory>
+   ```
+3. **Install the required dependencies:**
+   ```sh
+   pip install -r requirements.txt
+   ```
+4. **Run the Jupyter Notebook:**
+   ```sh
+   jupyter notebook FINAL_SALES_ANALYSIS_PROJECT.ipynb
+   ```
+
+Feel free to explore the notebook and modify the code as needed to further analyze and visualize the data.
  
 
